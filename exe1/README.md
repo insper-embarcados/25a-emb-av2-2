@@ -9,15 +9,17 @@ A chave SW1 controla se o botão irá incrementar o contador exibido na barra de
 E possui as seguintes funções:
 
 - `bar_init()`: inicializa os pinos da barra de pino
-- `bar_display(int val)`: Ao receber um valor inteiro de `0..5` preenche os LEDs da barra.
-
+- `bar_display(int val)`: Ao receber um valor inteiro de `0..5` preenche os LEDs da barra. Exemplo: 
+    - bar_display(3) -> Acende do primeiro ao terceiro led e mantem outros apagados.
+    - bar_display(1) -> Acende o primeiro led e mantem outros apagados.
+    - bar_display(0) -> Mantem todos leds apagados.
 ## Detalhes do firmware:
 
 - Baremetal (sem RTOS).
 - Deve passar nos testes `embedded_check`, `cpp_check` e `rubric_check`.
 - Deve trabalhar com interrupções nos botões.  
 - Não é permitido usar `gpio_get()`.
-- Deve implementar e usar as funções `bar_init()`, `bar_display(init val)`
+- Deve implementar e usar as funções `bar_init()`, `bar_display(int val)`
 
 ## Testes
 
