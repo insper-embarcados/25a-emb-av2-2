@@ -41,7 +41,15 @@ void bar_init(){
     gpio_pull_up(swit);
 }
 
+// acende d=ou desliga leds
 void bar_display(int val){
+    for(int i = 0; i< val; i++){
+        gpio_put(pins[i], 1);
+    }
+
+    for(int j = 5; j> val; j-- ){
+        gpio_put(pins[j-1], 0);
+    }
 
 }
 
@@ -57,29 +65,21 @@ int main() {
     while (true) {
         if(btn_verde){
             if(swit_crementa ){
+                if ((counter + 1) <=5)counter++;
                 printf("switch incrementando\n");
-                if (counter <=4){ 
-                    printf("counter actual %d\n", counter);
-                    gpio_put(pins[counter], 1);
-                    if ( (counter + 1) != 5){ 
-                        counter++;
-                        }
-                    }
-                    printf("counter next %d\n", counter);
+                printf("counter is %d", counter);
+                bar_display(counter);
+
+                
             } else if (!swit_crementa){
-                if(counter >= 0){
-                    printf("switch decrementando\n");
-                    printf("counter actual %d\n", counter);
-                    gpio_put(pins[counter], 0);
-                    if ( (counter - 1) != -1){ 
-                        counter--;
-                        }
-                    }
-                    printf("counter next %d\n", counter);
-                }
+                if ((counter - 1) >=0)counter--;
+                printf("switch decrementando\n");
+                printf("counter is %d", counter);
+                bar_display(counter);
+              
+            btn_verde = 0;
 
             }
-            btn_verde = 0;
         }
     
 
