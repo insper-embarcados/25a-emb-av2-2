@@ -81,8 +81,29 @@ void led_1_task(void* p){
                 gpio_put(LED_PIN_Y, 0);
                 vTaskDelay(pdMS_TO_TICKS(250));
             }
+            xSemaphoreGive(xSemaphoreLed2);
             // envia semaforo pro outro piscar
         }
+    }
+}
+
+void led_2_task(void* p){
+    gpio_init(LED_PIN_B);
+    gpio_set_dir(LED_PIN_B, GPIO_OUT);
+    int pisca_vezes = 0;
+    while(1){
+        if(xSemaphoreTake(xSemaphoreLed2, pdMS_TO_TICKS(100))){ 
+            if(xQueueReceive(xQueueLed2, &pisca_vezes, pdMS_TO_TICKS(100))){
+                for(int i = 0; i<= pisca_vezes; i++){
+                    gpio_put(LED_PIN_B, 1);
+                    vTaskDelay(pdMS_TO_TICKS(250));
+                    gpio_put(LED_PIN_B, 0);
+                    vTaskDelay(pdMS_TO_TICKS(250));
+                }
+            }
+
+        }
+        
     }
 }
 
@@ -99,6 +120,8 @@ int main() {
     xSemaphoreLed2 = xSemaphoreCreateBinary();
     xTaskCreate(input_task, "Input", 256, NULL, 1, NULL);
     xTaskCreate(main_task, "Input", 256, NULL, 1, NULL);
+    xTaskCreate(led_1_task, "Input", 256, NULL, 1, NULL);
+    xTaskCreate(led_2_task, "Input", 256, NULL, 1, NULL);
 
     /**
      * Seu código vem aqui!
