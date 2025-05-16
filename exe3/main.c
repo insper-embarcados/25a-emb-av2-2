@@ -75,7 +75,7 @@ void led_1_task(void* p){
     int pisca_vezes = 0;
     while(1){
         if(xQueueReceive(xQueueLed1, &pisca_vezes, pdMS_TO_TICKS(100))){
-            for(int i = 0; i<= pisca_vezes; i++){
+            for(int i = 0; i< pisca_vezes; i++){
                 gpio_put(LED_PIN_Y, 1);
                 vTaskDelay(pdMS_TO_TICKS(250));
                 gpio_put(LED_PIN_Y, 0);
@@ -94,7 +94,7 @@ void led_2_task(void* p){
     while(1){
         if(xSemaphoreTake(xSemaphoreLed2, pdMS_TO_TICKS(100))){ 
             if(xQueueReceive(xQueueLed2, &pisca_vezes, pdMS_TO_TICKS(100))){
-                for(int i = 0; i<= pisca_vezes; i++){
+                for(int i = 0; i< pisca_vezes; i++){
                     gpio_put(LED_PIN_B, 1);
                     vTaskDelay(pdMS_TO_TICKS(250));
                     gpio_put(LED_PIN_B, 0);
