@@ -17,7 +17,7 @@ E possui as seguintes funções:
 - Deve passar nos testes `embedded_check`, `cpp_check` e `rubric_check`.
 - Deve trabalhar com interrupções nos botões.  
 - Não é permitido usar `gpio_get()`.
-- Deve implementar e usar as funções `bar_init()`, `seven_sebar_displayg_display(init val)`
+- Deve implementar e usar as funções `bar_init()`, `bar_display(init val)`
 
 ## Testes
 
