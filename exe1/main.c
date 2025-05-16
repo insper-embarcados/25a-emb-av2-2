@@ -77,11 +77,11 @@ int main() {
                 printf("counter is %d", counter);
                 bar_display(counter);
               
-            btn_verde = 0;
 
             }
+            btn_verde = 0;
         }
-    
+    }
 
     
 }
