@@ -2,8 +2,7 @@
 
 ![](imgs/exe3.gif)
 
-Neste exercício vocês vão utilizar o RTOS para fazer dois LEDs piscarem. Porém o número de vezes que os LEDs irão piscar é definido por um dado que chega em uma fila E o led amarelo só pode piscar depois do LED azul.
-
+Neste exercício vocês vão utilizar o RTOS para fazer dois LEDs piscarem. Porém o número de vezes que os LEDs irão piscar é definido por um dado que chega em uma fila. **O led amarelo só pode piscar depois do LED azul ter piscado**.
 
 **Detalhes de funcionalidade:**
 
