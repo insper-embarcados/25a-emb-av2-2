@@ -18,7 +18,13 @@
       "left": -28.8,
       "attrs": { "color": "green", "xray": "1", "bounce": "0" }
     },
-    { "type": "wokwi-slide-switch", "id": "sw1", "top": 196.4, "left": 41.5, "attrs": {} },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "sw1",
+      "top": 196.4,
+      "left": 41.5,
+      "attrs": { "bounce": "0" }
+    },
     {
       "type": "wokwi-text",
       "id": "text1",
@@ -73,7 +79,6 @@
     [ "pico:GP22", "btn1:1.l", "green", [ "h0" ] ],
     [ "pico:GND.5", "btn1:2.r", "black", [ "h145.2", "v-38.4" ] ],
     [ "pico:GP28", "sw1:1", "green", [ "h0" ] ],
-    [ "pico:GND.5", "sw1:2", "black", [ "h145.2", "v-96", "h-48" ] ],
     [ "bargraph1:C1", "r1:1", "green", [ "v0" ] ],
     [ "bargraph1:C5", "r5:1", "green", [ "h0" ] ],
     [ "bargraph1:C4", "r4:1", "green", [ "h0" ] ],
@@ -83,7 +88,8 @@
     [ "r4:2", "r5:2", "black", [ "v0", "h8.4", "v9.6" ] ],
     [ "r3:2", "r4:2", "black", [ "v0", "h8.4", "v9.6" ] ],
     [ "r2:2", "r3:2", "black", [ "v0", "h8.4", "v9.6" ] ],
-    [ "r1:2", "r2:2", "black", [ "v0", "h8.4", "v9.6" ] ]
+    [ "r1:2", "r2:2", "black", [ "v0", "h8.4", "v9.6" ] ],
+    [ "sw1:2", "btn1:2.r", "green", [ "v0" ] ]
   ],
   "dependencies": {}
 }

@@ -5,4 +5,5 @@ forbiten:
     - busy_wait_ms
     - busy_wait_us
     - tight_loop_contents
+    - get_absolute_time
     error_text: Você não deve utilizar nenhuma funcão de sleep ou delay. Use o timer.
