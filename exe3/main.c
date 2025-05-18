@@ -26,7 +26,7 @@ typedef struct input {
  QueueHandle_t xQueueLed1;
  QueueHandle_t xQueueLed2;
  
- SemaphoreHandle_t xSemaphore_led2;
+ SemaphoreHandle_t xSemaphoreLed2;
 
 QueueHandle_t xQueueInput;
 
@@ -87,7 +87,7 @@ void input_task(void* p) {
                  gpio_put(LED_PIN_B, 0);
                  vTaskDelay(pdMS_TO_TICKS(delay));
              }
-             xSemaphoreGive(xSemaphore_led2);
+             xSemaphoreGive(xSemaphoreLed2);
              printf("Fim 1\n");
          }
      }
@@ -101,7 +101,7 @@ void input_task(void* p) {
      int num = 0;
      while (true) {
          if (xQueueReceive(xQueueLed2, &num, portMAX_DELAY)){
-             xSemaphoreTake(xSemaphore_led2, portMAX_DELAY);
+             xSemaphoreTake(xSemaphoreLed2, portMAX_DELAY);
              printf("led2 %d \n", num);
              for (int i = 0; i < num; i++) {
                  gpio_put(LED_PIN_Y, 1);
@@ -123,7 +123,7 @@ int main() {
     xQueueInput = xQueueCreate(32, sizeof(input_t));
     xQueueLed1 = xQueueCreate(32, sizeof(int));
      xQueueLed2 = xQueueCreate(32, sizeof(int));
-     xSemaphore_led2 = xSemaphoreCreateBinary();
+     xSemaphoreLed2 = xSemaphoreCreateBinary();
  
      xTaskCreate(input_task, "Input", 256, NULL, 1, NULL);
  
