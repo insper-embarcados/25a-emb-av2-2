@@ -16,7 +16,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: insper-embarcados/pico-build@v1
+      #- uses: insper-embarcados/pico-build@v1
+
+      - uses: samyarsadat/Pico-Build-Action@v1
+        with:
+          source_dir: "./"
+          output_dir: "build"
+          output_ext: "*.uf2 *.elf *.elf.map *.hex *.bin *.dis"
+          output_ignored_dirs: "_deps"
+      
       - uses: insper-embarcados/actions-wokwi-test@v1
         with:
           token: ${{ secrets.WOKWI_CLI_TOKEN }}
@@ -39,3 +47,4 @@ jobs:
         with:
           c_file: ${{env.EXE_DIR}}/main.c
           rubric_file: ${{env.EXE_DIR}}/rubric_firmware.yml
+
