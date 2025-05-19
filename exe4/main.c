@@ -44,7 +44,7 @@ void input_task(void* p) {
     xQueueSend(xQueueInput, &test_case, 0);
 
     while (true) {
-        vTaskDelay(1);
+        vTaskDelay(pdMS_TO_TICKS(1));
     }
 }
 
@@ -61,7 +61,7 @@ void main_task(void* p) {
             xQueueSend(xQueueLed1, &test_case.num_led1, 0);
             xQueueSend(xQueueLed2, &test_case.num_led2, 0);
         }
-        vTaskDelay(1);
+        vTaskDelay(pdMS_TO_TICKS(1));
     }
 }
 
@@ -78,14 +78,14 @@ void led_2_task(void* p) {
                
             while(num_led2 > 0){
                 gpio_put(LED_PIN_Y, 1);
-                vTaskDelay(250);
+                vTaskDelay(pdMS_TO_TICKS(250));
                 gpio_put(LED_PIN_Y, 0);
-                vTaskDelay(250);
+                vTaskDelay(pdMS_TO_TICKS(250));
                 num_led2--;
             }
             
         }
-        vTaskDelay(1);
+        vTaskDelay(pdMS_TO_TICKS(1));
     }
     }
 }
@@ -105,15 +105,15 @@ void led_1_task(void* p) {
             while(num_led1 > 0){
                 
                 gpio_put(LED_PIN_B, 1);
-                vTaskDelay(250);
+                vTaskDelay(pdMS_TO_TICKS(250));
                 gpio_put(LED_PIN_B, 0);
-                vTaskDelay(250);
+                vTaskDelay(pdMS_TO_TICKS(250));
                 num_led1--;
                 }
                 xSemaphoreGive(xSemaphoreLed2);
             }
         
-        vTaskDelay(1);
+       vTaskDelay(pdMS_TO_TICKS(1));
     }
 }
 
