@@ -31,4 +31,5 @@ Regras:
 
 ## exe4
 
+- implementação em Hardware de um dos exercicios realizados.
 
