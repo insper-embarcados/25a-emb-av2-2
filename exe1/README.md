@@ -6,8 +6,8 @@ Neste exercício, você deve desenvolver um firmware que:
 
 A chave SW controla se o botão irá incrementar o contador exibido na barra de LED ou se irá decrementar.
 
-SW = 0 (nível baixo): chave ligada (ativa) → decrementar.
-SW = 1 (nível alto): chave desligada (inativa) → incrementar.
+- SW = 0 (nível baixo) → incrementar.
+- SW = 1 (nível alto) → decrementar.
 
 Toda vez que o botão verde for apertado a barra de LED deve incrementar/decrementar de acordo com a configuração da chave.
 
