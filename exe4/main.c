@@ -78,9 +78,9 @@ void led_2_task(void* p) {
                
             while(num_led2 > 0){
                 gpio_put(LED_PIN_Y, 1);
-                vTaskDelay(100);
+                vTaskDelay(250);
                 gpio_put(LED_PIN_Y, 0);
-                vTaskDelay(100);
+                vTaskDelay(250);
                 num_led2--;
             }
             
@@ -105,9 +105,9 @@ void led_1_task(void* p) {
             while(num_led1 > 0){
                 
                 gpio_put(LED_PIN_B, 1);
-                vTaskDelay(100);
+                vTaskDelay(250);
                 gpio_put(LED_PIN_B, 0);
-                vTaskDelay(100);
+                vTaskDelay(250);
                 num_led1--;
                 }
                 xSemaphoreGive(xSemaphoreLed2);
