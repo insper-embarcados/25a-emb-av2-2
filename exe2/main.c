@@ -79,19 +79,19 @@ int main()
                                 timer_500ms_callback,
                                 NULL, 
                                 &timer_500ms)) {
-        printf("Failed to add timer\n");
+       // printf("Failed to add timer\n");
     }
 
     if (!add_repeating_timer_ms(150,
                                 timer_150ms_callback,
                                 NULL, 
                                 &timer_150ms)) {
-        printf("Failed to add timer\n");
+        //printf("Failed to add timer\n");
     }
 
 
 
-    volatile int inverteY, inverteB = 0;
+    int inverteY, inverteB = 0;
 
 
     while (1)
@@ -105,11 +105,11 @@ int main()
                                 timer_5s_callback,
                                 NULL, 
                                 &timer_5s)) {
-        printf("Failed to add timer\n");
+       // printf("Failed to add timer\n");
 
         }
         btnStatus = 0;
-        printf("btnStatus: %d\n", btnStatus);
+       // printf("btnStatus: %d\n", btnStatus);
         }
 
         if (g_timer_5s == 1)
@@ -121,7 +121,7 @@ int main()
                 g_timer_500ms = 0;
                 gpio_put(LED_PIN_Y, inverteY);
                 inverteY = !inverteY;
-                printf("500ms - %s\n", inverteY ? "ON" : "OFF");
+                //printf("500ms - %s\n", inverteY ? "ON" : "OFF");
                 //gpio_put(LED_PIN_Y, 0);
             }
             if(g_timer_150ms == 1){
@@ -129,7 +129,7 @@ int main()
                 g_timer_150ms = 0;
                 gpio_put(LED_PIN_B, inverteB);
                 inverteB = !inverteB;
-                printf("150ms - %s\n", inverteB ? "ON" : "OFF");
+                //printf("150ms - %s\n", inverteB ? "ON" : "OFF");
             }  
             
             
