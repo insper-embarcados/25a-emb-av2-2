@@ -27,6 +27,6 @@ O código deve passar em todos os testes para ser aceito:
 - `firmware_check`
 - `wokwi`
 
-Caso acredite que o seu código está funcionando, mas os testes estão falhando, preencha o forms:
+Caso acredite que o seu código está funcionando, porém os testes estão falhando, preencha o forms:
 
 [Google forms para revisão manual](https://docs.google.com/forms/d/e/1FAIpQLSdikhET4iqFwkOKmgD-G6Ri-2kCdhDLndlFWXdfdcuDfPnYHw/viewform?usp=dialog)
