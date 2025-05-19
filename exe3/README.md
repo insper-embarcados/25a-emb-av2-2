@@ -39,7 +39,7 @@ onde:
 
 - Utulizar RTOS.
 - Seguir estrutura proposta do firmware.
-- Utilizar período de 250 ms para piscar os LEDs.
+- Utilizar **período** de 500ms para piscar os LEDs.
 - **printf** pode atrapalhar o tempo de simulação, comenta antes de testar.
 
 ## Testes
