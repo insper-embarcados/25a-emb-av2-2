@@ -19,6 +19,7 @@ O período que cada LED deve piscar é:
     - Um para o LED amarelo;
     - Um para o LED Azul;
     - Um para o alarme que irá contar 5 segundos.
+- Os leds devem parar de piscar apagados.
 - Deve trabalhar com interrupções nos botões.  
 - Não é permitido usar `sleep_ms(), sleep_us(), get_absolute_time()`.
 - **printf** pode atrapalhar o tempo de simulação, comenta/remova antes de testar.
