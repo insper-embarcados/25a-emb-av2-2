@@ -24,6 +24,10 @@ typedef struct input {
 } input_t;
 
 QueueHandle_t xQueueInput;
+QueueHandle_t xQueueLed2;
+QueueHandle_t xQueueLed1;
+
+SemaphoreHandle_t xSemaphoreLed2;
 
 /**
  * NÃO MEXER!
@@ -40,13 +44,78 @@ void input_task(void* p) {
     xQueueSend(xQueueInput, &test_case, 0);
 
     while (true) {
-
+        vTaskDelay(1);
     }
 }
 
 /**
  * Seu código vem aqui!
  */
+
+void main_task(void* p) {
+
+    input_t test_case;
+    while (true) {
+        if (xQueueReceive(xQueueInput, &test_case, 1))
+        {
+            xQueueSend(xQueueLed1, &test_case.num_led1, 0);
+            xQueueSend(xQueueLed2, &test_case.num_led2, 0);
+        }
+        vTaskDelay(1);
+    }
+}
+
+void led_2_task(void* p) {
+      gpio_init(LED_PIN_Y);
+    gpio_set_dir(LED_PIN_Y, GPIO_OUT);
+
+    int num_led2;
+
+    while (true) {
+         if (xQueueReceive(xQueueLed2, &num_led2, 1))
+        {
+               
+            while(num_led2 >= 0){
+                printf("LED 2: %d\n", num_led2); 
+                gpio_put(LED_PIN_Y, 1);
+                vTaskDelay(250);
+                gpio_put(LED_PIN_Y, 0);
+                vTaskDelay(250);
+                num_led2--;
+                printf("LED 2: %d\n", num_led2); 
+            }
+            xSemaphoreGive(xSemaphoreLed2);
+        }
+        vTaskDelay(1);
+    }
+}
+
+
+void led_1_task(void* p) {
+    
+    gpio_init(LED_PIN_B);
+    gpio_set_dir(LED_PIN_B, GPIO_OUT);
+    
+    int num_led1;
+
+    while (true) {
+         if (xQueueReceive(xQueueLed1, &num_led1, 1))
+        {
+            while(num_led1 >= 0){
+                if (xSemaphoreTake(xSemaphoreLed2, pdMS_TO_TICKS(1)) == pdTRUE) {
+                gpio_put(LED_PIN_B, 1);
+                vTaskDelay(250);
+                gpio_put(LED_PIN_B, 0);
+                vTaskDelay(250);
+                num_led1--;
+                }
+                vTaskDelay(1);
+            }
+        }
+        vTaskDelay(1);
+    }
+}
+
 
 
 
@@ -57,7 +126,15 @@ int main() {
      * manter essas duas linhas!
      */
     xQueueInput = xQueueCreate(32, sizeof(input_t));
+    xQueueLed2 = xQueueCreate(32, sizeof(int));
+    xQueueLed1 = xQueueCreate(32, sizeof(int));
+
+    xSemaphoreLed2 = xSemaphoreCreateBinary();
+
     xTaskCreate(input_task, "Input", 256, NULL, 1, NULL);
+    xTaskCreate(main_task, "Main", 256, NULL, 1, NULL);
+    xTaskCreate(led_2_task, "Led_2", 256, NULL, 1, NULL);
+    xTaskCreate(led_1_task, "Led_1", 256, NULL, 1, NULL);
 
     /**
      * Seu código vem aqui!
