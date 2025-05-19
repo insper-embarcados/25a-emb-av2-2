@@ -4,7 +4,7 @@
 
 Neste exercício, você deve desenvolver um firmware que:
 
-A chave SW1 controla se o botão irá incrementar o contador exibido na barra de LED ou se irá decrementar (desligado = incrementa, ligado = incrementa). Toda vez que o botão verde for apertado a barra de LED deve incrementar/decrementar de acordo com a configuração da chave.
+A chave SW controla se o botão irá incrementar o contador exibido na barra de LED ou se irá decrementar (desligado = incrementa, ligado = incrementa). Toda vez que o botão verde for apertado a barra de LED deve incrementar/decrementar de acordo com a configuração da chave.
 
 E possui as seguintes funções:
 
@@ -17,7 +17,7 @@ E possui as seguintes funções:
 - Deve passar nos testes `embedded_check`, `cpp_check` e `rubric_check`.
 - Deve trabalhar com interrupções nos botões.  
 - Não é permitido usar `gpio_get()`.
-- Deve implementar e usar as funções `bar_init()`, `seven_sebar_displayg_display(init val)`
+- Deve implementar e usar as funções `bar_init()`, `bar_display(init val)`
 
 ## Testes
 
@@ -27,6 +27,6 @@ O código deve passar em todos os testes para ser aceito:
 - `firmware_check`
 - `wokwi`
 
-Caso acredite que o seu código está funcionando, só que os testes falham, preencha o forms:
+Caso acredite que o seu código está funcionando, mas os testes estão falhando, preencha o forms:
 
 [Google forms para revisão manual](https://docs.google.com/forms/d/e/1FAIpQLSdikhET4iqFwkOKmgD-G6Ri-2kCdhDLndlFWXdfdcuDfPnYHw/viewform?usp=dialog)
