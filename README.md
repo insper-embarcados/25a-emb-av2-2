@@ -3,7 +3,7 @@
 Regras:
 
 - Você pode consultar qualquer material SEU, e que foi fornecido ao longo do curso.
-- Duraćão de 2h.
+- Duração de 2h.
 - **Não pode usar qualquer tipo de LLM** (chatgpt, copilot chat, ..).
 - Deve manter o SMOWL ABERTO o tempo todo!
 
