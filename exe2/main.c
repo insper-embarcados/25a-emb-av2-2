@@ -22,7 +22,6 @@ volatile int g_timer_500ms, g_timer_150ms, g_timer_5s = 0;
 
 volatile int btnStatus = 0;
 
-
 void btn_callback(uint gpio, uint32_t events) {
   if (events == 0x4) { // fall edge
     if(gpio == BTN_PIN) btnStatus = 1;
