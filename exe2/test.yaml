@@ -42,7 +42,7 @@ steps:
       part-id: led2
       pin: A
  
-  - delay: 3000ms
+  - delay: 2000ms
 
   - wait-pin-change:
       part-id: led1
