@@ -2,7 +2,7 @@
 
 ![](imgs/exe2.gif)
 
-Neste exercício, vocês utilizarão o periférico de **timer** para piscar os dois LEDs, os mesmos devem começar começar a piscar quando o botão for pressionado e devem piscar por 5 segundos, depois devem parar. 
+Neste exercício, vocês utilizarão o periférico de **timer** para piscar os dois LEDs, os mesmos devem começar a piscar quando o botão for pressionado e devem piscar por 5 segundos, depois devem parar. 
 
 O período que cada LED deve piscar é:
 
@@ -12,7 +12,7 @@ O período que cada LED deve piscar é:
 **Detalhes do firmware:**
 
 - Baremetal (sem RTOS).
-- Deve trabalhar usar **TRÊS** timers: um para o LED amarelo, outro para o Azul e outro para o alarme que irá contar 1 segundo.
+- Deve trabalhar usando **TRÊS** timers: um para o LED amarelo, outro para o Azul e outro para o alarme que irá contar 5 segundos.
 - Deve trabalhar com interrupções nos botões.  
 - Não é permitido usar `sleep_ms(), sleep_us(), get_absolute_time()`.
 - **printf** pode atrapalhar o tempo de simulação, comenta/remova antes de testar.
@@ -25,6 +25,6 @@ O código deve passar em todos os testes para ser aceito:
 - `firmware_check`
 - `wokwi`
 
-Caso acredite que o seu código está funcionando, só que os testes falham, preencha o forms:
+Caso acredite que o seu código está funcionando, porém os testes estão falhando, preencha o forms:
 
 [Google forms para revisão manual](https://docs.google.com/forms/d/e/1FAIpQLSdikhET4iqFwkOKmgD-G6Ri-2kCdhDLndlFWXdfdcuDfPnYHw/viewform?usp=dialog)
