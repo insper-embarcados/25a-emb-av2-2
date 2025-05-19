@@ -2,11 +2,11 @@
 
 ![](imgs/exe2.gif)
 
-Neste exercício, vocês utilizarão o periférico de **timer** para piscar os dois LEDs, os mesmos devem começar começar a piscar quando o botão for pressionado e devem piscar por 1 segundo, depois devem parar. 
+Neste exercício, vocês utilizarão o periférico de **timer** para piscar os dois LEDs, os mesmos devem começar começar a piscar quando o botão for pressionado e devem piscar por 5 segundos, depois devem parar. 
 
 O período que cada LED deve piscar é:
 
-- Led amarelo: 300ms
+- Led amarelo: 500ms
 - Led azul: 150ms
 
 **Detalhes do firmware:**
@@ -28,4 +28,3 @@ O código deve passar em todos os testes para ser aceito:
 Caso acredite que o seu código está funcionando, só que os testes falham, preencha o forms:
 
 [Google forms para revisão manual](https://docs.google.com/forms/d/e/1FAIpQLSdikhET4iqFwkOKmgD-G6Ri-2kCdhDLndlFWXdfdcuDfPnYHw/viewform?usp=dialog)
-
